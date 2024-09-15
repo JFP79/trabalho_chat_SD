@@ -46,9 +46,8 @@ public class ClientHandler extends Thread {
         }
     }
 
-    // Broadcasts a message to all other clients
     public void broadcastMessage(String messageToSend) {
-        for (ClientHandler clientHandler : clientHandlers) {  // Renamed to clientHandler for consistency
+        for (ClientHandler clientHandler : clientHandlers) {
             try {
                 if (!clientHandler.clientUsername.equals(this.clientUsername)) {
                     clientHandler.bufferedWriter.write(messageToSend);
